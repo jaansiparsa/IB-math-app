@@ -33,7 +33,7 @@ def standard_form(leading_coef, int_vertex):
             expression = "x^2 - " + str(abs(b)) + "x" + " + " + str(c)
         else:
             expression = "x^2 - " + str(abs(b)) + "x" + " - " + str(abs(c))
-    if leading_coef == True:
+    elif leading_coef == True:
         if a >= 0:
             if b>= 0 and c>=0:
                 expression = str(a) + "x^2 + " + str(a*b) + "x" + " + " + str(a*c)
