@@ -7,7 +7,7 @@ public class quadraticsQ4 {
     String point = functions.vertexFormPoint(function, "P");
     String question = "Let f(x) = a(x - h)^2 + k.\nThe vertex of the graph is at " + vertex + " and the graph passes through " + point + ".\n\ta) Write down the values of h and k.\n\tb) Find the value of a.";
 
-    quadraticsQ4(){
+    public quadraticsQ4(){
 
     }
 

@@ -12,6 +12,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 
+import Frames.MyFrame;
+
 
 public class GUI implements ActionListener {
     public static void main(String[] args){

@@ -6,7 +6,7 @@ public class quadraticsQ5 {
     String question = "a) Express " + standardFunction + " in the form a(x + b)^2 + c, where a, b, c are all integers.\nb) Given that f(x) = " + vertexFunction.substring(vertexFunction.indexOf("(")+1, vertexFunction.indexOf(")")) + " and g(f(x)) = " + standardFunction + ", find g(x).";
     String answer = "a) " + vertexFunction + "\nb) g(x) = " + vertexFunction.substring(0, vertexFunction.indexOf("(")) + "x" + vertexFunction.substring(vertexFunction.indexOf(")") + 1);
 
-    quadraticsQ5(){
+    public quadraticsQ5(){
 
     }
 

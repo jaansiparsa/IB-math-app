@@ -200,13 +200,63 @@ public class functions {
 
     }
 
+    public static String[] rationalFuncDeg1(){
+        // choose min and max for x intercept / vertical asymptote
+        int minX = -10;
+        int maxX = 10;
+
+        int xIntercept = minX + (int)(Math.random()*(maxX-minX+1));
+        int verticalAsymptote = xIntercept;
+        while (verticalAsymptote == xIntercept){
+            verticalAsymptote = minX + (int)(Math.random()*(maxX-minX+1));
+        }
+
+        // leading coefficients for numerator and demonimator
+        int minA = -5;
+        int maxA = 5;
+        int numA;
+        int denomA;
+        do {
+        numA = (int)(Math.random()*(maxA-minA+1));
+        denomA = (int)(Math.random()*(maxA-minA+1));
+        } while (numA == 0 || denomA == 0);
+
+        String numerator = "";
+        if (numA*xIntercept >=0){
+            numerator += numA + "x - " + numA*xIntercept;
+        }   else{
+            numerator += numA + "x + " + Math.abs(numA*xIntercept);
+        }
+        String denominator = "";
+        if (denomA*verticalAsymptote>=0){
+            denominator += denomA + "x - " + denomA*verticalAsymptote;
+        } else{
+            denominator += denomA + "x + " + Math.abs(denomA*verticalAsymptote);
+        }
+
+        String rationalFunction = "(" + numerator + ")/(" + denominator + ")";
+        Float horizontalAsymptote = (float)numA / denomA;
+        Float yIntercept = (float)(numA*xIntercept)/(denomA*verticalAsymptote);
+        String domain = "(-infty, " + verticalAsymptote + ") U (" + verticalAsymptote + ", infty)";
+        String range = "(-infty, " + horizontalAsymptote + ") U (" + horizontalAsymptote + ", infty)";
+
+        // list - 0: rational function, 1: x intercept, 2: y incercept, 3: horizontal asymptote, 4: vertical asymptote, 5: domain, 6: range
+        String[] returns = {rationalFunction, Integer.toString(xIntercept), Float.toString(yIntercept), Float.toString(horizontalAsymptote), Float.toString(verticalAsymptote), domain, range};
+        
+
+        return returns;
+    }
+
     public static void main(String[] args){
-        String[] function = factoredForm(true, true);
+        // still have to test these functions
+        /*String[] function = factoredForm(true, true);
         String vertexForm = factoredToVertex(function);
 
         System.out.println(function[0]);
         System.out.println(function[0]);
-        System.out.println(vertexForm);
+        System.out.println(vertexForm);*/
+
+        rationalFuncDeg1();
     }
     
 }

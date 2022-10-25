@@ -1,3 +1,4 @@
+package Frames;
 import javax.swing.*;
 
 import java.awt.Color;
@@ -34,7 +35,7 @@ public class MyFrame extends JFrame implements ActionListener{
     JMenuItem saveItem = new JMenuItem("Save");
     JMenuItem exitItem = new JMenuItem("Exit");
 
-    MyFrame(){
+    public MyFrame(){
         Color color = new Color(139, 193, 232);
 
         this.setTitle("Math Question Generator");
@@ -49,11 +50,11 @@ public class MyFrame extends JFrame implements ActionListener{
 
 
         unit1.addActionListener(this);
-        unit2.addActionListener(this);;
-        unit3.addActionListener(this);;
-        unit4.addActionListener(this);;
-        unit5.addActionListener(this);;
-        unit6.addActionListener(this);;
+        unit2.addActionListener(this);
+        unit3.addActionListener(this);
+        unit4.addActionListener(this);
+        unit5.addActionListener(this);
+        unit6.addActionListener(this);
 
         /*//unit1.setBounds(200,100,100, 50);
 

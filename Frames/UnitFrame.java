@@ -1,3 +1,4 @@
+package Frames;
 import javax.swing.*;
 
 import java.awt.Color;
@@ -8,16 +9,18 @@ import java.awt.GridLayout;
 import java.awt.Dimension;
 import java.awt.Font;
 
-public class UnitFrame extends JFrame{
+public class UnitFrame extends JFrame {
 
-    JPanel title = new JPanel();
+    JPanel top = new JPanel();
     JPanel center = new JPanel();
     JPanel left = new JPanel();
     JPanel right = new JPanel();
     JPanel bottom = new JPanel();
+
+    JButton back = new JButton("Back");
+    Color color = new Color(139, 193, 232);
     
     UnitFrame(){
-        Color color = new Color(139, 193, 232);
 
         this.setTitle("Math Question Generator");
         this.setForeground(Color.black);
@@ -31,19 +34,24 @@ public class UnitFrame extends JFrame{
 
         center.setBackground(color);
 
-        title.setBackground(color);
-        center.setPreferredSize(new Dimension(50, 100));
+        top.setBackground(color);
+        top.setPreferredSize(new Dimension(50, 100));
 
         left.setBackground(color);
-        left.setPreferredSize(new Dimension(80, 100));
+        left.setPreferredSize(new Dimension(100, 100));
 
         right.setBackground(color);
-        right.setPreferredSize(new Dimension(80, 100));
+        right.setPreferredSize(new Dimension(100, 100));
 
         bottom.setBackground(color);
         bottom.setPreferredSize(new Dimension(50, 100));
 
-        this.add(title, BorderLayout.NORTH);
+        bottom.add(back);
+        back.setVerticalAlignment(JButton.CENTER);
+        back.setFocusable(false);
+        back.setBackground(color.lightGray);
+
+        this.add(top, BorderLayout.NORTH);
         this.add(center, BorderLayout.CENTER);
         this.add(left,BorderLayout.WEST);
         this.add(right, BorderLayout.EAST);

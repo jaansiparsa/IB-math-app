@@ -4,11 +4,11 @@ public class quadraticsQ6 {
     String[] function = functions.standardForm(false, int_vertex);
     String question = "";
     
-    quadraticsQ6(){
+    public quadraticsQ6(){
         int_vertex = TOF();
     }
 
-    quadraticsQ6(Boolean int_vertex){
+    public quadraticsQ6(Boolean int_vertex){
         this.int_vertex = int_vertex;
     }
 
