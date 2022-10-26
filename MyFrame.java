@@ -1,4 +1,3 @@
-package Frames;
 import javax.swing.*;
 
 import java.awt.Color;
@@ -67,12 +66,12 @@ public class MyFrame extends JFrame implements ActionListener{
         unit5.setFocusable(false);
         unit6.setFocusable(false);
 
-        unit1.setBackground(color.lightGray);
-        unit2.setBackground(color.lightGray);
-        unit3.setBackground(color.lightGray);
-        unit4.setBackground(color.lightGray);
-        unit5.setBackground(color.lightGray);
-        unit6.setBackground(color.lightGray);
+        unit1.setBackground(Color.lightGray);
+        unit2.setBackground(Color.lightGray);
+        unit3.setBackground(Color.lightGray);
+        unit4.setBackground(Color.lightGray);
+        unit5.setBackground(Color.lightGray);
+        unit6.setBackground(Color.lightGray);
 
         title.setBackground(color);
         title.setPreferredSize(new Dimension(100, 100));

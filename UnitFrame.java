@@ -1,13 +1,10 @@
-package Frames;
+
+
 import javax.swing.*;
 
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.BorderLayout;
-import java.awt.GridLayout;
 import java.awt.Dimension;
-import java.awt.Font;
 
 public class UnitFrame extends JFrame {
 
@@ -49,7 +46,7 @@ public class UnitFrame extends JFrame {
         bottom.add(back);
         back.setVerticalAlignment(JButton.CENTER);
         back.setFocusable(false);
-        back.setBackground(color.lightGray);
+        back.setBackground(Color.lightGray);
 
         this.add(top, BorderLayout.NORTH);
         this.add(center, BorderLayout.CENTER);

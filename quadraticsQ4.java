@@ -1,4 +1,4 @@
-public class quadraticsQ4 {
+public class quadraticsQ4 extends quadratics {
     String difficulty = "easy";
     String[] function = functions.vertexForm(true);
     String xVertex = function[2];

@@ -1,4 +1,5 @@
-package Frames;
+
+
 import javax.swing.*;
 
 import java.awt.Font;
@@ -8,8 +9,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.GridLayout;
 
+import java.util.ArrayList;
+
 public class Unit2Frame extends UnitFrame implements ActionListener {
-    
+
     JLabel title = new JLabel("Unit 2 Practice");
 
     JButton practiceThis = new JButton("Practice This!");
@@ -26,9 +29,13 @@ public class Unit2Frame extends UnitFrame implements ActionListener {
     JCheckBox mod6 = new JCheckBox("Polynomials");
     JCheckBox mod7 = new JCheckBox("Modulus and Inequalities");
 
+    ArrayList<Object> functionProperties = new ArrayList<Object>();
+    ArrayList<quadratics> quadratics = new ArrayList<quadratics>();
+
     JPanel difficulty = new JPanel();
 
     public Unit2Frame(){
+
         top.setLayout(new BorderLayout());
         top.add(title);
         title.setVerticalAlignment(JLabel.CENTER);
@@ -51,15 +58,7 @@ public class Unit2Frame extends UnitFrame implements ActionListener {
         mod6.setBackground(Color.lightGray);
         mod7.setBackground(Color.lightGray);
 
-        difficulty.add(easy);
-        difficulty.add(medium);
-        difficulty.add(hard);
-
-        easy.setFocusable(false);
-        medium.setFocusable(false);
-        hard.setFocusable(false);
-
-
+        
         center.setLayout(new GridLayout(8,1));
         center.add(mod1);
         center.add(mod2);
@@ -70,6 +69,15 @@ public class Unit2Frame extends UnitFrame implements ActionListener {
         center.add(mod7);
         center.add(difficulty);
 
+        difficulty.add(easy);
+        difficulty.add(medium);
+        difficulty.add(hard);
+
+        easy.setFocusable(false);
+        medium.setFocusable(false);
+        hard.setFocusable(false);
+
+
         bottom.add(practiceThis);
         practiceThis.setFocusable(false);
         practiceThis.setBackground(Color.LIGHT_GRAY);
@@ -78,15 +86,54 @@ public class Unit2Frame extends UnitFrame implements ActionListener {
         back.addActionListener(this);
         practiceThis.addActionListener(this);
 
+        quadratics.add(new quadraticsQ1());
+        quadratics.add(new quadraticsQ2());
+        quadratics.add(new quadraticsQ3());
+        quadratics.add(new quadraticsQ4());
+        quadratics.add(new quadraticsQ5());
+        quadratics.add(new quadraticsQ6());
+
 
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        // TODO Auto-generated method stub
         if (e.getSource()==back){
             this.dispose();
             new MyFrame();
+        }
+        ArrayList<Object> options = new ArrayList<>();
+        if (e.getSource()==practiceThis){
+            if (easy.isSelected()){
+                if (mod2.isSelected()){
+                    for (int i =0; i< quadratics.size(); i++){
+                        if(quadratics.get(i).getDifficulty()=="easy"){
+                            options.add(quadratics.get(i).getQuestion());
+                        }
+                    }
+                }
+            }
+            // THROWS ERROR DURING MEDIUM AND HARD BECAUSE THERE ARE NO MEDIUM/HARD QUESTIONS IN DATABASE
+            if (medium.isSelected()){
+                if (mod2.isSelected()){
+                    for (int i =0; i< quadratics.size(); i++){
+                        if(quadratics.get(i).getDifficulty()=="medium"){
+                            options.add(quadratics.get(i).getQuestion());
+                        }
+                    }
+                }
+            }
+            if (hard.isSelected()){
+                if (mod2.isSelected()){
+                    for (int i =0; i< quadratics.size(); i++){
+                        if(quadratics.get(i).getDifficulty()=="hard"){
+                            options.add(quadratics.get(i).getQuestion());
+                        }
+                    }
+                }
+            }
+            Object question = options.get((int)(Math.random()*options.size()));
+            System.out.println(question);
         }
     }
 }

@@ -1,4 +1,4 @@
-public class quadraticsQ5 {
+public class quadraticsQ5 extends quadratics {
     String difficulty = "easy";
     String[] function = functions.standardForm(true, true);
     String standardFunction = function[0];

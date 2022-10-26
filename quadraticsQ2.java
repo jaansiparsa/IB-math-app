@@ -1,4 +1,4 @@
-public class quadraticsQ2 {
+public class quadraticsQ2 extends quadratics{
     String difficulty = "easy";
     String expression = functions.factoredForm(false, true)[0];
 
