@@ -31,6 +31,8 @@ public class Unit2Frame extends UnitFrame implements ActionListener {
 
     ArrayList<Object> functionProperties = new ArrayList<Object>();
     ArrayList<quadratics> quadratics = new ArrayList<quadratics>();
+    static ArrayList<Object> options = new ArrayList<>();
+    static ArrayList<Object> answers = new ArrayList<>();
 
     JPanel difficulty = new JPanel();
 
@@ -102,13 +104,13 @@ public class Unit2Frame extends UnitFrame implements ActionListener {
             this.dispose();
             new MyFrame();
         }
-        ArrayList<Object> options = new ArrayList<>();
         if (e.getSource()==practiceThis){
             if (easy.isSelected()){
                 if (mod2.isSelected()){
                     for (int i =0; i< quadratics.size(); i++){
                         if(quadratics.get(i).getDifficulty()=="easy"){
                             options.add(quadratics.get(i).getQuestion());
+                            answers.add(quadratics.get(i).getAnswer());
                         }
                     }
                 }
@@ -119,6 +121,7 @@ public class Unit2Frame extends UnitFrame implements ActionListener {
                     for (int i =0; i< quadratics.size(); i++){
                         if(quadratics.get(i).getDifficulty()=="medium"){
                             options.add(quadratics.get(i).getQuestion());
+                            answers.add(quadratics.get(i).getAnswer());
                         }
                     }
                 }
@@ -128,12 +131,14 @@ public class Unit2Frame extends UnitFrame implements ActionListener {
                     for (int i =0; i< quadratics.size(); i++){
                         if(quadratics.get(i).getDifficulty()=="hard"){
                             options.add(quadratics.get(i).getQuestion());
+                            answers.add(quadratics.get(i).getAnswer());
                         }
                     }
                 }
             }
-            Object question = options.get((int)(Math.random()*options.size()));
-            System.out.println(question);
+            // Object question = options.get((int)(Math.random()*options.size()));
+            // System.out.println(question);
+            new QuestionScreen();
         }
     }
 }

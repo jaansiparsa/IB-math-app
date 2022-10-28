@@ -21,4 +21,8 @@ public class quadraticsQ6 extends quadratics {
         }
     }
 
+    public String getAnswer(){
+        return "temp";
+    }
+
 }

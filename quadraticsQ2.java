@@ -14,4 +14,7 @@ public class quadraticsQ2 extends quadratics{
     public String getQuestion(){
         return question;
     }
+    public String getAnswer(){
+        return "temp";
+    }
 }

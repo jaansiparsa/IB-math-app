@@ -1,6 +1,7 @@
 public class quadratics {
     String difficulty;
     String question;
+    String answer;
 
     quadratics(){
 
@@ -11,5 +12,9 @@ public class quadratics {
     public String getQuestion(){
         return question;
     }
+    public String getAnswer(){
+        return answer;
+    }
+
 
 }

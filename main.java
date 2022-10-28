@@ -15,9 +15,11 @@ public class main {
         System.out.println();
         System.out.println(question5.getQuestion());
         System.out.println(question5.getAnswer());*/
-        rationalFuncQ1 question6 = new rationalFuncQ1();
-        System.out.println(question6.getQuestion());
+        // rationalFuncQ1 question6 = new rationalFuncQ1();
+        //System.out.println(question6.getQuestion());
         System.out.println();
-        System.out.println(question6.getAnswer());
+        // System.out.println(question6.getAnswer());
+
+        System.out.println("\\sqrt{5}");
     }
 }
