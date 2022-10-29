@@ -1,5 +1,5 @@
 public class quadraticsQ6 extends quadratics {
-    String difficulty = "easy";
+    String difficulty = "unfinished";
     Boolean int_vertex;
     String[] function = functions.standardForm(false, int_vertex);
     String question = "";

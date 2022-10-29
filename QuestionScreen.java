@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 
 public class QuestionScreen extends JFrame implements ActionListener{
     
+    JLabel screen = new JLabel();
     JPanel top = new JPanel();
     JPanel center = new JPanel();
     JPanel left = new JPanel();
@@ -36,8 +37,23 @@ public class QuestionScreen extends JFrame implements ActionListener{
         this.setLayout(new BorderLayout());
 
         this.add(bottom, BorderLayout.SOUTH);
+        this.add(left, BorderLayout.WEST);
+        this.add(right,BorderLayout.EAST);
+        this.add(top, BorderLayout.NORTH);
+        this.add(center, BorderLayout.CENTER);
+
+
         bottom.setBackground(color);
         bottom.setPreferredSize(new Dimension(50, 100));
+
+        top.setBackground(color);
+        top.setPreferredSize(new Dimension(50, 100));
+
+        left.setBackground(color);
+        left.setPreferredSize(new Dimension(100, 100));
+
+        right.setBackground(color);
+        right.setPreferredSize(new Dimension(100, 100));
 
         next.setBackground(Color.lightGray);
         answer.setBackground(Color.lightGray);
@@ -56,8 +72,13 @@ public class QuestionScreen extends JFrame implements ActionListener{
         next.addActionListener(this);
 
         index = (int)(Math.random()*Unit2Frame.options.size());
-        Object question = Unit2Frame.options.get(index);
-        System.out.println(question);
+        String question = Unit2Frame.options.get(index);
+        screen.setText(question);
+        screen.setBackground(color);
+        center.setBackground(Color.white);
+
+        center.add(screen);
+
 
     }
 
@@ -69,12 +90,14 @@ public class QuestionScreen extends JFrame implements ActionListener{
         }
         if (e.getSource()==next){
             index = (int)(Math.random()*Unit2Frame.options.size());
-            Object question = Unit2Frame.options.get(index);
+            String question = Unit2Frame.options.get(index);
+            screen.setText(question);
             System.out.println(question);
         }
         if (e.getSource()==answer){
-            Object answer = Unit2Frame.answers.get(index);
+            String answer = Unit2Frame.answers.get(index);
             System.out.println(answer);
+            screen.setText(answer);
         }
         
     }

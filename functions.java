@@ -59,7 +59,8 @@ public class functions {
             }
         }
 
-        String[] returns = {expression, Integer.toString(a), Integer.toString(b), Integer.toString(c)};
+        String[] returns = {expression, Integer.toString(a), Integer.toString(b), Integer.toString(c), Integer.toString(factor1), Integer.toString(factor2)};
+        // returns list: expression, a, b, c, factor 1, factor 2
         return returns;
     }
 
@@ -137,7 +138,7 @@ public class functions {
 
     }
 
-    public static String standardToVertex(String[] standardFormInfo){
+    public static String[] standardToVertex(String[] standardFormInfo){
         // array: standard form, a, b, c
 
         int a = Integer.parseInt(standardFormInfo[1]);
@@ -157,7 +158,9 @@ public class functions {
         else
             vertexForm += " - " + Math.abs(yVertex);
 
-        return vertexForm;
+        // array : expression, a, x coordinate of vertex, y coordinate of vertex
+        String[] returns = {vertexForm, Integer.toString(a), Integer.toString(xVertex), Integer.toString(yVertex)};
+        return returns;
 
     }
 
@@ -169,16 +172,49 @@ public class functions {
         int b = (-1)*(factor1+factor2)*a;
         int c = factor1 * factor2 * a;
 
-        String standardForm = a + "x^2 + " + b + "x" + c;
-        String[] returns = {standardForm, Integer.toString(a), Integer.toString(b), Integer.toString(c)};
+        // String standardForm = a + "x^2 + " + b + "x" + c;
+        String standardForm;
+        if (b>=0 && c>=0){
+            standardForm = a + "x^2 + " + b + "x + " + c;
+        }
+        else if (b>=0 && c<0){
+            standardForm = a + "x^2 + " + b + "x - " + Math.abs(c);
+        }
+        else if (b<0 && c>=0){
+            standardForm = a + "x^2 - " + Math.abs(b) + "x + " + c;
+        }
+        else{
+            standardForm = a + "x^2 - " + Math.abs(b) + "x - " + Math.abs(c);
+        }
+        // array: expression, a, b/a, c/a, factor 1, factor 2
+        String[] returns = {standardForm, Integer.toString(a), Integer.toString(b/a), Integer.toString(c/a), Integer.toString(factor1), Integer.toString(factor2)};
         return returns;
     }
 
-    public static String factoredToVertex(String [] info){
+    public static String[] standardToFactored(String[] info){
+        // array: expression, a, b/a, c/a, factor 1, factor 2
+        String expression;
+        int factor1 = Integer.parseInt(info[4]);
+        int factor2 = Integer.parseInt(info[5]);
+        if (factor1>=0 && factor2>=0){
+            expression = info[1] + "(x - " + factor1 + ")(x - " + factor2 + ")";
+        } else if (factor1>=0){
+            expression = info[1] + "(x - " + factor1 + ")(x + " + Math.abs(factor2) + ")";
+        } else if (factor1<0 && factor2 >= 0){
+            expression = info[1] + "(x + " + Math.abs(factor1) + ")(x - " + factor2 + ")";
+        } else {
+            expression = info[1] + "(x + " + Math.abs(factor1) + ")(x + " + Math.abs(factor2) + ")";
+        }
+        String[] returns = {expression, info[1], info[4], info[5]};
+        return returns;
+        
+    }
+
+    public static String[] factoredToVertex(String [] info){
         // array: factored form, a, factor 1, factor 2
         String[] standardForm = factoredToStandard(info);
         // array: standard form, a, b, c
-        String vertexForm = standardToVertex(standardForm);
+        String[] vertexForm = standardToVertex(standardForm);
 
         return vertexForm;
     }

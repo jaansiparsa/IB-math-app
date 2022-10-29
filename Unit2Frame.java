@@ -31,8 +31,8 @@ public class Unit2Frame extends UnitFrame implements ActionListener {
 
     ArrayList<Object> functionProperties = new ArrayList<Object>();
     ArrayList<quadratics> quadratics = new ArrayList<quadratics>();
-    static ArrayList<Object> options = new ArrayList<>();
-    static ArrayList<Object> answers = new ArrayList<>();
+    static ArrayList<String> options = new ArrayList<>();
+    static ArrayList<String> answers = new ArrayList<>();
 
     JPanel difficulty = new JPanel();
 
